@@ -170,7 +170,7 @@ $$P(X_{n+1}=j) = \sum_{i=1}^{\infty}P(X_{n}=i)P(X_{n+1}=j\mid x_{n}=i)=\sum_{i=1
 
 &emsp;&emsp;**细致平稳条件** : 如果非周期马尔科夫链的转移矩阵$P$和分布$\pi(x)$满足
 
-$$$\pi(i)P_{ij}=\pi(j)P_{ji} \qquad \textrm{for all}~i,j$
+$$\pi(i)P_{ij}=\pi(j)P_{ji} \qquad \textrm{for all}~i,j$$
 
 &emsp;&emsp;则$\pi(x)$是马尔科夫链的平稳分布，上式被称为细致平稳条件(`detailed balance condition`)。 其实这个定理是显而易见的，因为细致平稳条件的物理含义就是对于任何两个状态$i,j$,
 从$i$转移出去到$j$而丢失的概率质量，恰好会被从$j$转移回$i$的概率质量补充回来，所以状态ii上的概率质量$\pi(i)$是稳定的，从而$\pi(x)$是马尔科夫链的平稳分布。
@@ -190,7 +190,7 @@ $$\alpha(i,j) = p(j)q(j,i) ~,~\alpha(j,i) = p(i)q(i,j)$$
 &emsp;&emsp;于是上述式成立了。 在改造$Q$的过程中引入的$\alpha(i,j)$称为接受率，物理意义可以理解为在原来的马尔科夫链上，从状态 $i$ 以$q(i,j)$的概率转跳转到状态$j$的时候，
 我们以$\alpha(i,j)$的概率接受这个转移，于是得到新的马尔科夫链的转移概率为$q(i,j)\alpha(i,j)$。假设我们已经有一个转移矩阵$Q$，对应元素为$q(i,j)$，整理上述过程就得到了如下的用于采样概率分布$p(x)$的算法。
 
-<div  align="center"><img src="imgs/mcmc.png" width = "550" height = "300" alt="" align="center" /></div>
+<div  align="center"><img src="imgs/mcmc.png" width = "450" height = "250" alt="" align="center" /></div>
 
 &emsp;&emsp;以上的`MCMC`采样算法已经能很漂亮的工作了，不过它有一个小的问题：马尔科夫链$Q$在转移的过程中的接受率$\alpha(i,j)$可能偏小，这样采样过程中容易原地踏步，拒绝大量的跳转，使得马尔科夫链收敛到平稳分布$p(x)$的速度太慢。
 
@@ -207,7 +207,7 @@ $$p(i)q(i,j) \cdot 0.5=p(j)q(j,i) \cdot 1$$
 $$\alpha(i,j)=\min{\bigg\{\frac{p(j)q(j,i)}{p(i)q(i,j)},1\bigg\}}$$ ,
 于是，经过对上述MCMC 采样算法中接受率的改造，我们就得到了最常见的`Metropolis-Hastings`算法。
 
-<div  align="center"><img src="imgs/Metropolis-Hastings.png" width = "550" height = "300" alt="" align="center" /></div>
+<div  align="center"><img src="imgs/Metropolis-Hastings.png" width = "450" height = "250" alt="" align="center" /></div>
 
 ## Gibbs Sampling
 
@@ -218,7 +218,7 @@ $$\alpha(i,j)=\min{\bigg\{\frac{p(j)q(j,i)}{p(i)q(i,j)},1\bigg\}}$$ ,
 &emsp;&emsp;如果当前状态为$x_1,x_2,\ldots,x_n$转移的过程中，只能沿着坐标轴做转移。沿着$x_i$坐标轴做转移的时候，转移概率由条件概率$p(x_i|x_1,x_2,\ldots,x_{i-1},x_{i+1},\ldots,x_n)$定义。
 其它无法沿着单根坐标轴进行的跳转，转移概率都设置为0。 于是`Gibbs Smapling`算法可以描述为:
 
-<div  align="center"><img src="imgs/Metropolis-Hastings.png" width = "550" height = "500" alt="" align="center" /></div>
+<div  align="center"><img src="imgs/Metropolis-Hastings.png" width = "450" height = "400" alt="" align="center" /></div>
 
 
 
