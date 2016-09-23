@@ -238,7 +238,7 @@ $$p(A)p(x_2|y_1) = p(C)p(x_1|y_1).$$
 &emsp;&emsp;如果当前状态为$x_1,x_2,\ldots,x_n$转移的过程中，只能沿着坐标轴做转移。沿着$x_i$坐标轴做转移的时候，转移概率由条件概率$p(x_i|x_1,x_2,\ldots,x_{i-1},x_{i+1},\ldots,x_n)$定义。
 其它无法沿着单根坐标轴进行的跳转，转移概率都设置为0。 于是`Gibbs Smapling`算法可以描述为:
 
-<div  align="center"><img src="imgs/Gibbs-Smapling.png" width = "450" height = "350" alt="" align="center" /></div>
+<div  align="center"><img src="imgs/Gibbs-Smapling.png" width = "400" height = "300" alt="" align="center" /></div>
 
 ## 参考文献
 
