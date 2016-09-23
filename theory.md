@@ -79,15 +79,15 @@ $$P(X_{n+1}=j) = \sum_{i=1}^{\infty}P(X_{n}=i)P(X_{n+1}=j\mid x_{n}=i)=\sum_{i=1
 社会学家们发现决定一个人的收入阶层的最重要的因素就是其父母的收入阶层。如果一个人的收入属于下层类别，那么他的孩子属于下层收入的概率是 0.65, 属于中层收入的概率是 0.28,
 属于上层收入的概率是 0.07。事实上，从父代到子代，收入阶层的变化的转移概率如下
 
-<div  align="center"><img src="imgs/table-1.jpg" width = "450" height = "300" alt="" align="center" /></div>
+<div  align="center"><img src="imgs/table-1.jpg" width = "400" height = "200" alt="" align="center" /></div>
 
 <div  align="center"><img src="imgs/markov-transition.png" width = "450" height = "300" alt="" align="center" /></div>
 
 &emsp;&emsp;使用矩阵的表示方式，转移概率矩阵记为
 
 $$P=\begin{bmatrix}
-  0.65 &  0.28 & 0.07 \\
-  0.15& 0.67 & 0.18 \\
+  0.65 &  0.28 & 0.07 \\\
+  0.15& 0.67 & 0.18 \\\
   0.12 & 0.36 & 0.52
   \end{bmatrix}$$
 
