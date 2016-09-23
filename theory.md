@@ -209,7 +209,15 @@ $$p(i)q(i,j) \cdot 0.5=p(j)q(j,i) \cdot 1$$
 
 ## Gibbs Sampling
 
-&emsp;&emsp;对于高维空间的数据采样，`Stuart Geman`和`Donald Geman`这两兄弟于1984 年提出来了`Gibbs Sampling`算法。
+&emsp;&emsp;对于高维的情形，由于接受率$\alpha$的存在,以上`Metropolis-Hastings`算法的效率不够高。能否找到一个转移矩阵$Q$使得接受率$\alpha=1$呢？
+我们先看看二维的情形，假设有一个概率分布$p(x,y)$,考察$x$坐标相同的两个点$A(x_1,y_1), B(x_1,y_2)$,我们发现:
+
+$$\begin{align*}
+  p(x_1,y_1)p(y_2|x_1) = p(x_1)p(y_1|x_1)p(y_2|x_1) \\
+  p(x_1,y_2)p(y_1|x_1) = p(x_1)p(y_2|x_1)p(y_1|x_1)
+  \end{align*}$$
+
+&emsp;&emsp;`Stuart Geman`和`Donald Geman`这两兄弟于1984 年提出来了`Gibbs Sampling`算法。
 此时的细致平稳条件可以表示为$p(x_1,y_1)p(y_2|x_1)=p(x_1,y_2)p(y_1|x_1)$,此时转移矩阵$Q$由条件分布$p(y|x_1)$定义。
 所以n维空间中对于概率分布$p(x_1,x_2,\ldots,x_n)$可以如下定义转移矩阵:
 
