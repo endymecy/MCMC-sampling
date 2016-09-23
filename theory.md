@@ -119,9 +119,9 @@ show(result);
 $$P^{100}=
   \left[
   \begin{array}{ccc}
-      0.2865014 & 0.4885216 & 0.224977\\
-  0.2865014 & 0.4885216 & 0.224977\\
-  0.2865014 & 0.4885216 & 0.224977\\
+      0.2865014 & 0.4885216 & 0.224977\\\
+  0.2865014 & 0.4885216 & 0.224977\\\
+  0.2865014 & 0.4885216 & 0.224977\\\
   \end{array}
   \right]$$
 
@@ -190,7 +190,7 @@ $$\alpha(i,j) = p(j)q(j,i) ~,~\alpha(j,i) = p(i)q(i,j)$$
 &emsp;&emsp;于是上述式成立了。 在改造$Q$的过程中引入的$\alpha(i,j)$称为接受率，物理意义可以理解为在原来的马尔科夫链上，从状态 $i$ 以$q(i,j)$的概率转跳转到状态$j$的时候，
 我们以$\alpha(i,j)$的概率接受这个转移，于是得到新的马尔科夫链的转移概率为$q(i,j)\alpha(i,j)$。假设我们已经有一个转移矩阵$Q$，对应元素为$q(i,j)$，整理上述过程就得到了如下的用于采样概率分布$p(x)$的算法。
 
-<div  align="center"><img src="imgs/mcmc.png" width = "450" height = "250" alt="" align="center" /></div>
+<div  align="center"><img src="imgs/mcmc.png" width = "450" height = "200" alt="" align="center" /></div>
 
 &emsp;&emsp;以上的`MCMC`采样算法已经能很漂亮的工作了，不过它有一个小的问题：马尔科夫链$Q$在转移的过程中的接受率$\alpha(i,j)$可能偏小，这样采样过程中容易原地踏步，拒绝大量的跳转，使得马尔科夫链收敛到平稳分布$p(x)$的速度太慢。
 
@@ -204,10 +204,11 @@ $$p(i)q(i,j) \cdot 0.5=p(j)q(j,i) \cdot 1$$
 
 &emsp;&emsp;我们提高了接受率，而细致平稳条件并没有打破。这启发我们可以把细致平稳条件中$\alpha(i,j),\alpha(j,i)$等比例放大，使得两数中较大的一个放大到1，如此提高了采样中的跳转接受率。
 故可以
-$$\alpha(i,j)=\min{\bigg\{\frac{p(j)q(j,i)}{p(i)q(i,j)},1\bigg\}}$$ ,
-于是，经过对上述MCMC 采样算法中接受率的改造，我们就得到了最常见的`Metropolis-Hastings`算法。
+$$ \alpha(i,j)=\min{\bigg\{\frac{p(j)q(j,i)}{p(i)q(i,j)},1\bigg\}} $$
 
-<div  align="center"><img src="imgs/Metropolis-Hastings.png" width = "450" height = "250" alt="" align="center" /></div>
+&emsp;&emsp;于是，经过对上述`MCMC`采样算法中接受率的改造，我们就得到了最常见的`Metropolis-Hastings`算法。
+
+<div  align="center"><img src="imgs/Metropolis-Hastings.png" width = "450" height = "200" alt="" align="center" /></div>
 
 ## Gibbs Sampling
 
@@ -218,7 +219,7 @@ $$\alpha(i,j)=\min{\bigg\{\frac{p(j)q(j,i)}{p(i)q(i,j)},1\bigg\}}$$ ,
 &emsp;&emsp;如果当前状态为$x_1,x_2,\ldots,x_n$转移的过程中，只能沿着坐标轴做转移。沿着$x_i$坐标轴做转移的时候，转移概率由条件概率$p(x_i|x_1,x_2,\ldots,x_{i-1},x_{i+1},\ldots,x_n)$定义。
 其它无法沿着单根坐标轴进行的跳转，转移概率都设置为0。 于是`Gibbs Smapling`算法可以描述为:
 
-<div  align="center"><img src="imgs/Metropolis-Hastings.png" width = "450" height = "400" alt="" align="center" /></div>
+<div  align="center"><img src="imgs/Metropolis-Hastings.png" width = "450" height = "250" alt="" align="center" /></div>
 
 
 
