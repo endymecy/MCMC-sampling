@@ -212,14 +212,28 @@ $$p(i)q(i,j) \cdot 0.5=p(j)q(j,i) \cdot 1$$
 &emsp;&emsp;对于高维的情形，由于接受率$\alpha$的存在,以上`Metropolis-Hastings`算法的效率不够高。能否找到一个转移矩阵$Q$使得接受率$\alpha=1$呢？
 我们先看看二维的情形，假设有一个概率分布$p(x,y)$,考察$x$坐标相同的两个点$A(x_1,y_1), B(x_1,y_2)$,我们发现:
 
-$$\begin{align*}
-  p(x_1,y_1)p(y_2|x_1) = p(x_1)p(y_1|x_1)p(y_2|x_1) \\
-  p(x_1,y_2)p(y_1|x_1) = p(x_1)p(y_2|x_1)p(y_1|x_1)
-  \end{align*}$$
+$$p(x_1,y_1)p(y_2|x_1) = p(x_1)p(y_1|x_1)p(y_2|x_1)$$
 
-&emsp;&emsp;`Stuart Geman`和`Donald Geman`这两兄弟于1984 年提出来了`Gibbs Sampling`算法。
-此时的细致平稳条件可以表示为$p(x_1,y_1)p(y_2|x_1)=p(x_1,y_2)p(y_1|x_1)$,此时转移矩阵$Q$由条件分布$p(y|x_1)$定义。
-所以n维空间中对于概率分布$p(x_1,x_2,\ldots,x_n)$可以如下定义转移矩阵:
+$$p(x_1,y_2)p(y_1|x_1) = p(x_1)p(y_2|x_1)p(y_1|x_1)$$
+
+&emsp;&emsp;所以得到
+
+$$p(x_1,y_1)p(y_2|x_1) = p(x_1,y_2)p(y_1|x_1) $$
+
+即:
+
+$$p(A)p(y_2|x_1) = p(B)p(y_1|x_1)$$
+
+&emsp;&emsp;基于以上等式，我们发现，在$x=x_1$这条平行于y轴的直线上，如果使用条件分布$p(y|x_1)$做为任何两个点之间的转移概率，那么任何两个点之间的转移满足细致平稳条件。
+同样的，如果我们在$y=y_1$这条直线上任意取两个点$A(x_1,y_1),C(x_2,y_1)$,也有如下等式
+
+$$p(A)p(x_2|y_1) = p(C)p(x_1|y_1).$$
+
+<div  align="center"><img src="imgs/gibbs-transition.png" width = "500" height = "250" alt="" align="center" /></div>
+
+&emsp;&emsp;于是这个二维空间上的马氏链将收敛到平稳分布$p(x,y)$,而这个算法就称为 `Gibbs Sampling` 算法,是`Stuart Geman` 和`Donald Geman` 这两兄弟于1984年提出来的，
+之所以叫做`Gibbs Sampling`是因为他们研究了`Gibbs random field`, 这个算法在现代贝叶斯分析中占据重要位置。
+
 
 &emsp;&emsp;如果当前状态为$x_1,x_2,\ldots,x_n$转移的过程中，只能沿着坐标轴做转移。沿着$x_i$坐标轴做转移的时候，转移概率由条件概率$p(x_i|x_1,x_2,\ldots,x_{i-1},x_{i+1},\ldots,x_n)$定义。
 其它无法沿着单根坐标轴进行的跳转，转移概率都设置为0。 于是`Gibbs Smapling`算法可以描述为:
