@@ -73,6 +73,23 @@ $$P(X_{t+1}=x|X_t,X_{t-1},...)=P(X_{t+1}=x|X_t)$$
 
 $$P(X_{n+1}=j) = \sum_{i=1}^{\infty}P(X_{n}=i)P(X_{n+1}=j\mid x_{n}=i)=\sum_{i=1}^{\infty}P(X_{n}=i) p_{ij}$$
 
+&emsp;&emsp;下面举一个例子来说明马尔科夫链平稳分布。
+
+&emsp;&emsp;社会学家经常把人按其经济状况分成3类：下层(`lower-class`)、中层(`middle-class`)、上层(`upper-class`)，我们用1,2,3 分别代表这三个阶层。
+社会学家们发现决定一个人的收入阶层的最重要的因素就是其父母的收入阶层。如果一个人的收入属于下层类别，那么他的孩子属于下层收入的概率是 0.65, 属于中层收入的概率是 0.28,
+属于上层收入的概率是 0.07。事实上，从父代到子代，收入阶层的变化的转移概率如下
+
+<div  align="center"><img src="imgs/table-1.jpg" width = "450" height = "300" alt="" align="center" /></div>
+
+<div  align="center"><img src="imgs/markov-transition.png" width = "450" height = "300" alt="" align="center" /></div>
+
+&emsp;&emsp;使用矩阵的表示方式，转移概率矩阵记为
+
+$$P=\begin{bmatrix}
+  0.65 &  0.28 & 0.07\\
+  0.15& 0.67 & 0.18\\
+  0.12 & 0.36 & 0.52
+  \end{bmatrix}$$
 
 
 
