@@ -203,10 +203,7 @@ $$p(i)q(i,j) \cdot 0.1=p(j)q(j,i) \cdot 0.2$$
 $$p(i)q(i,j) \cdot 0.5=p(j)q(j,i) \cdot 1$$
 
 &emsp;&emsp;我们提高了接受率，而细致平稳条件并没有打破。这启发我们可以把细致平稳条件中$\alpha(i,j),\alpha(j,i)$等比例放大，使得两数中较大的一个放大到1，如此提高了采样中的跳转接受率。
-故可以
-$$ \alpha(i,j)=\min{\bigg\{\frac{p(j)q(j,i)}{p(i)q(i,j)},1\bigg\}} $$
-
-&emsp;&emsp;于是，经过对上述`MCMC`采样算法中接受率的改造，我们就得到了最常见的`Metropolis-Hastings`算法。
+故可以$\alpha(i,j)=min\left \{ \frac{p(j)q(j,i)}{p(i)q(i,j)}, 1 \right \}$。于是，经过对上述`MCMC`采样算法中接受率的改造，我们就得到了最常见的`Metropolis-Hastings`算法。
 
 <div  align="center"><img src="imgs/Metropolis-Hastings.png" width = "450" height = "200" alt="" align="center" /></div>
 
@@ -219,8 +216,13 @@ $$ \alpha(i,j)=\min{\bigg\{\frac{p(j)q(j,i)}{p(i)q(i,j)},1\bigg\}} $$
 &emsp;&emsp;如果当前状态为$x_1,x_2,\ldots,x_n$转移的过程中，只能沿着坐标轴做转移。沿着$x_i$坐标轴做转移的时候，转移概率由条件概率$p(x_i|x_1,x_2,\ldots,x_{i-1},x_{i+1},\ldots,x_n)$定义。
 其它无法沿着单根坐标轴进行的跳转，转移概率都设置为0。 于是`Gibbs Smapling`算法可以描述为:
 
-<div  align="center"><img src="imgs/Metropolis-Hastings.png" width = "450" height = "250" alt="" align="center" /></div>
+<div  align="center"><img src="imgs/Gibbs-Smapling.png" width = "450" height = "300" alt="" align="center" /></div>
 
+## 参考文献
+
+【1】[蒙特卡洛方法采样算法](http://imbinwang.github.io/blog/mcmc-and-gibbs-sampling)
+
+【2】[随机采样方法整理与讲解（MCMC、Gibbs Sampling等）](http://www.cnblogs.com/xbinworld/p/4266146.html)
 
 
 
