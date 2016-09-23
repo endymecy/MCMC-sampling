@@ -131,7 +131,7 @@ $$P^{100}=
 &emsp;&emsp;**马尔科夫链定理:**如果一个非周期马尔科夫链具有转移概率矩阵$P$，且它的任何两个状态是连通的，那么$\lim_{n \rightarrow \infty}P_{ij}^{n}$存在且与$i$无关，
 记$\lim_{n \rightarrow \infty}P_{ij}^{n} = \pi(j)$,有
 
-- 1 $$\lim_{n \rightarrow \infty}P^{n} =\left(
+**1** $$\lim_{n \rightarrow \infty}P^{n} =\left(
    \begin{align}
    \pi(1)  \pi(2) \ldots \pi(j) \ldots \\\
    \pi(1) \pi(2)  \ldots \pi(j) \ldots \\\
@@ -139,7 +139,7 @@ $$P^{100}=
    \end{align}
    \right)$$
 
-- 2 $\pi(j) = \sum_{i=0}^{\infty}\pi(i)P_{ij}$
+**2** $\pi(j) = \sum_{i=0}^{\infty}\pi(i)P_{ij}$
 
 &emsp;&emsp;$\pi$是方程$\pi~P=\pi$的唯一非负解,其中$\pi=[\pi(1),\pi(2),\ldots,\pi(j),\ldots],~\sum_{i=0}^{\infty}\pi(i)=1$,$\pi$称为马尔科夫链的平稳分布。
 
